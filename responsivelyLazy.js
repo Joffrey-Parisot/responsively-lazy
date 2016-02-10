@@ -101,10 +101,16 @@ if (typeof responsivelyLazy === 'undefined') {
                 if (container.lastSetOption[1] < bestSelectedOption[1]) {
                     container.lastSetOption = bestSelectedOption;
                     element.setAttribute('srcset', bestSelectedOption[0]);
+					if (container.classList) {
+						container.classList.add('responsively-lazy--visible');
+					}
+					else {
+						container.className += ' responsively-lazy--visible';
+					}
                 }
 
-            }
         };
+            }
 
         update(document.querySelectorAll('.responsively-lazy > img'), false);
         update(document.querySelectorAll('img.responsively-lazy'), true);
